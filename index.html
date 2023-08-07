@@ -360,6 +360,8 @@
 		</td>
 	</tr>
 
+	<br>
+
 	<tr>
     	<td>
 			<center>
@@ -369,13 +371,47 @@
 		</td>
     </tr>
 
+	<tr>
+    	<td>
+
+		</td>
+    </tr>
+	<br>
+	<br>
+
+	<tr>
+    	<td>
+			<center>
+				<font size="-0.5"> We also considered two additional challenges: differential privacy and label imbalance. We found that our approach was robust to both.</font>
+    		</center>
+
+		</td>
+    </tr>
+
+
+	<tr>
+		<td width=1000px>
+			<center>
+				<img class="round" style="width:400px" src="./resources/differential_privacy.png"/>
+			</center>
+		</td>
+	</tr>
+
+	<tr>
+		<td width=1000px>
+			<center>
+				<img class="round" style="width:400px" src="./resources/remove_labels.png"/>
+			</center>
+		</td>
+	</tr>
+
 
 	<br>
 	<center><font size="+2"><i>Segmentation</font></center>
 			<tr>
 			<td width=1000px>
         		<center>
-        			<img class="round" style="width:600px" src="./resources/segmentation_results.png"/>
+        			<img class="round" style="width:800px" src="./resources/segmentation_results.png"/>
         		</center>
         	</td>
 		</tr>
@@ -389,21 +425,48 @@
 		</td>
     </tr>
 
-<br>
-	<br>
-	<br>
+
+	<center><font size="+2"><i>Regression</font></center>
 		<tr>
 			<td width=1000px>
         		<center>
-        			<img class="round" style="width:600px" src="./resources/embeddings.png"/>
+        			<img class="round" style="width:800px" src="./resources/regression_results.png"/>
         		</center>
         	</td>
 		</tr>
 
-		<br>
+		<tr>
+    	<td>
+			<center>
+				<font size="-0.5"> We considered age prediction with the ABIDE data for the regression task. No existing SFDA approaches can be used for regression. </font>
+    		</center>
 
+		</td>
+    </tr>
 
 	<hr>
+	<br>
+		<table align=center width=850px>
+			<center>
+				<tr>
+					<td>
+						<center><h1>Conclusion</h1></center>
+
+						We have presented SFHarmony, a method for SFDA,
+						motivated by the need to harmonise MRI data across imaging sites while relaxing assumptions about the availability
+						of source data. We have demonstrated the applicability of
+						the method to classification, regression, and segmentation
+						tasks, and have shown that it outperforms existing SFDA
+						approaches when applied to MR imaging data. The approach is general, allowing it to be applied across architectures and tasks. Issues may arise due the increase in features
+						when applying the approach to 3D volumes. Currently, the
+						approach models each feature as an independent GMM, but
+						features will be highly related within a filter and approaches
+						to utilise these relations should be explored.
+					</td>
+				</tr>
+			</center>
+		</table>
+
 	<br>
 
 	<table align=center width=900px>
@@ -411,7 +474,14 @@
 			<td width=300px>
 				<left>
 					<center><h1>Acknowledgements</h1></center>
-
+					ND is supported by a Academy of Medical Sciences
+					Springboard Award. MJ is supported by the National Institute for Health Research, Oxford Biomedical Research
+					Centre, and this research was funded by the Wellcome Trust
+					[215573/Z/19/Z]. WIN is supported by core funding from
+					the Wellcome Trust [203139/Z/16/Z]. AN is grateful for
+					support from the Academy of Medical Sciences under the
+					Springboard Awards scheme (SBF005/1136), and the Bill
+					and Melinda Gates Foundation.
 
 					This template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">colorful</a> ECCV project; the code can be found <a href="https://github.com/richzhang/webpage-template">here</a>.
 				</left>
