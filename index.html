@@ -260,7 +260,7 @@
 		<tr>
 			<td align=center width=400px>
 				<center>
-						<img class="round" style="width:700px" src="./resources/architecture.png"/>
+						<img class="round" style="width:700px" src="./resources/constant_lines.png"/>
 				</center>
 			</td>
 		</tr>
@@ -269,7 +269,17 @@
 		<center>
 			<tr>
 				<td>
-					We present an iterative framework for federated harmonisation, building upon our previous approach (Deep learning-based unlearning of dataset bias for MRI harmonisation and confound removal - NeuroImage 2021). By alternating between optimising for the main task and removing the scanner information, the network is able to perform the task of interest while being invariant to the scanner. Through modeling the features from each site as Gaussian distributions, we can remove scanner effects without moving the data, and utilise our harmonisation framework in a federated setting.
+					We explore an unsupervised DA setting where
+					only the source model, instead of the source data, is pro-
+					vided to the unlabelled target domain for harmonisation,
+					known as Source Free Domain Adaptation (SFDA). This
+					setting inherently protects individual privacy, whilst allow-
+					ing the efficient incorporation of new sites without requiring
+					target labels. We propose a simple yet effective solution,
+					termed SFHarmony, which aims to match feature embed-
+					dings from the source and target, through characterising the
+					embeddings as a Gaussian Mixture model (GMM) and the
+					use of a modified Bhattacharyya distanc
 				</td>
 			</tr>
 		</center>
