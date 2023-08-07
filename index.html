@@ -1,0 +1,367 @@
+<script src="http://www.google.com/jsapi" type="text/javascript"></script> 
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+<style type="text/css">
+	body {
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+		font-weight:300;
+		font-size:18px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 1100px;
+	}
+	
+	h1 {
+		font-size:32px;
+		font-weight:300;
+	}
+	
+	.disclaimerbox {
+		background-color: #eee;		
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+		padding: 20px;
+	}
+
+	video.header-vid {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	img.header-img {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	img.rounded {
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	a:link,a:visited
+	{
+		color: #1367a7;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #208799;
+	}
+	
+	td.dl-link {
+		height: 160px;
+		text-align: center;
+		font-size: 22px;
+	}
+	
+	.layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		5px 5px 0 0px #fff, /* The second layer */
+		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		10px 10px 0 0px #fff, /* The third layer */
+		10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+		15px 15px 0 0px #fff, /* The fourth layer */
+		15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+		20px 20px 0 0px #fff, /* The fifth layer */
+		20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+		25px 25px 0 0px #fff, /* The fifth layer */
+		25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+	.paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35); /* The top layer shadow */
+
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+
+	.layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		5px 5px 0 0px #fff, /* The second layer */
+		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		10px 10px 0 0px #fff, /* The third layer */
+		10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+		margin-top: 5px;
+		margin-left: 10px;
+		margin-right: 30px;
+		margin-bottom: 5px;
+	}
+	
+	.vert-cent {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	
+	hr
+	{
+		border: 0;
+		height: 1px;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	}
+</style>
+
+<html>
+<head>
+	<title>FedHarmony: Unlearning Scanner Bias with Distributed Data </title>
+	<meta property="og:image" content="Path to my teaser.png"/> <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
+	<meta property="og:title" content="Deep learning-based unlearning of dataset bias for MRI harmonisation and confound removal" />
+	<meta property="og:description" content="Paper description." />
+
+	<!-- Get from Google Analytics -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src=""></script> 
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-75863369-6');
+	</script>
+</head>
+
+<body>
+	<br>
+	<center>
+		<span style="font-size:36px">FedHarmony: Unlearning Scanner Bias with Distributed Data</span>
+		<br>
+		<br>
+		<center><font size="+2"><i>MICCAI 2022 [To be presented] </font></center>
+		<table align=center width=600px>
+			<table align=center width=600px>
+				<tr>
+					<td align=center width=130px>
+						<center>
+							<span style="font-size:24px"><a href="https://nkdinsdale.github.io/nkdinsdale/">Nicola Dinsdale</a><sup>1</sup></span>
+						</center>
+					</td>
+					<td align=center width=100px>
+						<center>
+							<span style="font-size:24px"><a href="https://www.ndcn.ox.ac.uk/team/mark-jenkinson">Mark Jenkinson</a><sup>2,</sup><sup>3,</sup><sup>4</sup></span>
+						</center>
+					</td>
+					<td align=center width=100px>
+						<center>
+							<span style="font-size:24px"><a href="https://www.pmb.ox.ac.uk/person/dr-ana-namburete">Ana Namburete</a><sup>2</sup></span>
+						</center>
+					</td>
+				</tr>
+			</table>
+
+					<br>
+			<table align=center width=800px>
+				<tr>
+					<td align=center width=800px>
+						<center>
+							<span style="font-size:12px"><sup>1</sup>Oxford Machine Learning in NeuroImaging (OMNI) Lab,  University of Oxford</a></span>
+						</center>
+					</td>
+				</tr>
+			</table>
+
+			<table align=center width=800px>
+				<tr>
+					<td align=center width=800px>
+						<center>
+							<span style="font-size:12px"><sup>2</sup>Wellcome Institute for Integrative NeuroImaging (WIN), University of Adelaide </a></span>
+						</center>
+					</td>
+				</tr>
+			</table>
+
+			<table align=center width=800px>
+				<tr>
+					<td align=center width=800px>
+						<center>
+							<span style="font-size:12px"><sup>3</sup>Australian Institute for Machine Learning (AIML), University of Adelaide </a></span>
+						</center>
+					</td>
+				</tr>
+			</table>
+
+			<table align=center width=800px>
+				<tr>
+					<td align=center width=800px>
+						<center>
+							<span style="font-size:12px"><sup>4</sup>South Australian Health and Medical Research Institute (SAHMRI) </a></span>
+						</center>
+					</td>
+				</tr>
+			</table>
+
+
+			<table align=center width=500px>
+				<tr>
+					<td align=center width=200px>
+						<center>
+							<span style="font-size:24px"><a href=https://arxiv.org/abs/2205.15970>[Paper]</a></span>
+						</center>
+					</td>
+					<td align=center width=120px>
+						<center>
+							<span style="font-size:24px"><a href=https://github.com/nkdinsdale/FedHarmony>[GitHub]</a></span><br>
+						</center>
+					</td>
+				</tr>
+			</table>
+		</table>
+	</center>
+
+	<center>
+		<table align=center width=1000px>
+			<tr>
+				<td width=600px>
+					<center>
+						<img class="round" style="width:500px" src="./resources/mygif.gif"/>
+					</center>
+				</td>
+			</tr>
+		</table>
+	</center>
+
+	<hr>
+
+	<table align=center width=850px>
+		<center><h1>Abstract</h1></center>
+		<tr>
+			<td>
+				The ability to combine data across scanners and studies is vital for neuroimaging, to increase both statistical power and the represenation of biological variability. However, combining datasets across sites
+leads to two challenges: first, an increase in undesirable non-biological
+variance due to scanner and acquisition differences - the harmonisation problem - and second, data privacy concerns due to the inherently
+personal nature of medical imaging data, meaning that sharing them
+across sites may risk violation of privacy laws. To overcome these restrictions, we propose FedHarmony: a harmonisation framework operating in
+the federated learning paradigm. We show that to remove the scanner-specific effects, we only need to share the mean and standard deviation
+of the learned features, helping to protect individual subjects' privacy.
+We demonstrate our approach across a range of realistic data scenarios,
+using real multi-site data from the ABIDE dataset, thus showing the potential utility of our method for MRI harmonisation across studies.
+			</td>
+		</tr>
+	</table>
+	<br>
+
+	<center><h1>Pipeline</h1></center>
+
+	<table align=center width=420px>
+		<center>
+			<tr>
+				<td>
+				</td>
+			</tr>
+		</center>
+	</table>
+	<table align=center width=400px>
+		<tr>
+			<td align=center width=400px>
+				<center>
+						<img class="round" style="width:700px" src="./resources/architecture.png"/>
+				</center>
+			</td>
+		</tr>
+	</table>
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td>
+					We present an iterative framework for federated harmonisation, building upon our previous approach (Deep learning-based unlearning of dataset bias for MRI harmonisation and confound removal - NeuroImage 2021). By alternating between optimising for the main task and removing the scanner information, the network is able to perform the task of interest while being invariant to the scanner. Through modeling the features from each site as Gaussian distributions, we can remove scanner effects without moving the data, and utilise our harmonisation framework in a federated setting.
+				</td>
+			</tr>
+		</center>
+	</table>
+
+	<table align=center width=800px>
+		<br>
+		<tr><center>
+			<span style="font-size:28px">&nbsp;<a href='https://github.com/nkdinsdale/FedHarmony'>[GitHub]</a>
+			</center>
+		</span>
+	</table>
+	<br>
+
+		<center><h1>Results</h1></center>
+	<center><font size="+2"><i>Age Prediction Task - Fully Supervised </font></center>
+		<tr>
+			<td width=1000px>
+        		<center>
+        			<img class="round" style="width:700px" src="./resources/ablation_study.png"/>
+        		</center>
+        	</td>
+		</tr>
+	</table>
+
+	<tr>
+    	<td>
+			<center>
+				<font size="-0.5"> FedHarmony gives best average performance across sites, while most scanner information from the features.</font>
+    		</center>
+
+		</td>
+    </tr>
+
+	<br>
+	<center><font size="+2"><i>Semisupervised</font></center>
+			<tr>
+			<td width=1000px>
+        		<center>
+        			<img class="round" style="width:600px" src="./resources/semisupervised.png"/>
+        		</center>
+        	</td>
+		</tr>
+
+		<tr>
+    	<td>
+			<center>
+				<font size="-0.5"> The framework can also be applied in semisupervised settings, outperforming the oracle thanks to the domain adaptation approach .</font>
+    		</center>
+
+		</td>
+    </tr>
+
+<br>
+	<br>
+	<br>
+		<tr>
+			<td width=1000px>
+        		<center>
+        			<img class="round" style="width:600px" src="./resources/embeddings.png"/>
+        		</center>
+        	</td>
+		</tr>
+
+		<br>
+
+
+	<hr>
+	<br>
+
+	<table align=center width=900px>
+		<tr>
+			<td width=300px>
+				<left>
+					<center><h1>Acknowledgements</h1></center>
+
+
+					This template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">colorful</a> ECCV project; the code can be found <a href="https://github.com/richzhang/webpage-template">here</a>.
+				</left>
+			</td>
+		</tr>
+	</table>
+
+<br>
+</body>
+</html>
+
